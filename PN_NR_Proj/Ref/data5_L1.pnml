@@ -1,0 +1,37 @@
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="net.L6e4d9d36.e0a3fc" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <page id="toppage.L6e4d9d36.e0a3fc">
+      <name>
+        <text>myname</text>
+      </name>
+      <place id="Pc17173a1.3d1d7"/>      <arc id="a1" source="T3dcbdd2d.b7599a" target="Pc17173a1.3d1d7"/>      <transition id="T3dcbdd2d.b7599a">
+        <name>
+          <text>L6e4d9d36.e0a3fc</text>
+        </name>
+      </transition>
+      <arc id="a0" source="Tc77c179d.5d8e9" target="Pc17173a1.3d1d7"/>      <transition id="Tc77c179d.5d8e9">
+        <name>
+          <text>L6e4d9d36.e0a3fc</text>
+        </name>
+      </transition>
+      <arc id="a2" source="T3474170e.715a1" target="Pc17173a1.3d1d7"/>      <transition id="T3474170e.715a1">
+        <name>
+          <text>L6e4d9d36.e0a3fc</text>
+        </name>
+      </transition>
+      <arc id="b0" source="Pc17173a1.3d1d7" target="Tc17173a1.3d1d7"/>      <transition id="Tc17173a1.3d1d7">
+        <name>
+          <text>L6e4d9d36.e0a3fc</text>
+        </name>
+      </transition>
+      <place id="P8d0a8ad6.a2d2_L6e4d9d36.e0a3fc"/>      <arc id="a3L6e4d9d36.e0a3fc" source="Tc17173a1.3d1d7" target="P8d0a8ad6.a2d2_L6e4d9d36.e0a3fc"/>      <arc id="a1_L6e4d9d36.e0a3fc0" source="P8d0a8ad6.a2d2_L6e4d9d36.e0a3fc" target="Tmqtt.outT8d0a8ad6.a2d2_0"/>      <transition id="Tmqtt.outT8d0a8ad6.a2d2_0">
+        <name>
+          <text>L6e4d9d36.e0a3fc</text>
+        </name>
+      </transition>
+      <place id="PL6e4d9d36.e0a3fc0"/>      <arc id="a2_L6e4d9d36.e0a3fc0" source="Tmqtt.outT8d0a8ad6.a2d2_0" target="PL6e4d9d36.e0a3fc0"/>    </page>
+    <name>
+      <text>net.L6e4d9d36.e0a3fc</text>
+    </name>
+  </net>
+</pnml>

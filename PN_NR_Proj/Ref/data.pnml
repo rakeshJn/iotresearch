@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml>
+<net id="net0" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+  <page id="toppage">
+    <name>
+      <text>myname</text>
+    </name>
+    <place id="PL-af9048e5.01c33"/>    
+    <transition id="TR-f21d5751.1ca54"/>    
+    <arc id="a0" source="TR-f21d5751.1ca54" target="PL-af9048e5.01c33"/>    
+    <place id="PL-f21d5751.1ca54"/>    
+    <transition id="TR-3605506d.13ea28"/>   
+    <arc id="a1" source="TR-3605506d.13ea28" target="PL-f21d5751.1ca54"/>    
+    <transition id="TR-e48ad5.ea968528"/>    
+    <arc id="a2" source="TR-e48ad5.ea968528" target="PL-f21d5751.1ca54"/>    
+    <transition id="TR-ccd0ae63.5d947"/>    
+    <arc id="a3" source="TR-ccd0ae63.5d947" target="PL-f21d5751.1ca54"/>    
+    <arc id="a5" source="PL-f21d5751.1ca54" target="TR-f21d5751.1ca54"/>  
+    </page>
+  <name>
+    <text>hello</text>
+  </name>
+</net>
+</pnml>
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel" id="net0">
+    <name>
+      <text>hello</text>
+    </name>
+    <page id="toppage">
+      <name>
+        <text>myname</text>
+      </name>
+      <transition id="T8d0a8ad6.a2d2">
+        <name>
+          <text>Lc0b529c8.67f2f8</text>
+        </name>
+      </transition>
+      <transition id="Tc77c179d.5d8e9">
+        <name>
+          <text>L6e4d9d36.e0a3fc</text>
+        </name>
+      </transition>
+      <transition id="T3dcbdd2d.b7599a">
+        <name>
+          <text>L6e4d9d36.e0a3fc</text>
+        </name>
+      </transition>
+      <transition id="Tc17173a1.3d1d7">
+        <name>
+          <text>L6e4d9d36.e0a3fc</text>
+        </name>
+      </transition>
+      <transition id="T3474170e.715a1">
+        <name>
+          <text>L6e4d9d36.e0a3fc</text>
+        </name>
+      </transition>
+      <place id="PTc17173a1.3d1d7"/>
+      <arc id="a0" source="Tc77c179d.5d8e9" target="PTc17173a1.3d1d7"/>
+      <arc id="b0" source="PTc17173a1.3d1d7" target="Tc17173a1.3d1d7"/>
+      <arc id="a1" source="T3dcbdd2d.b7599a" target="PTc17173a1.3d1d7"/>
+      <arc id="b1" source="PTc17173a1.3d1d7" target="Tc17173a1.3d1d7"/>
+      <arc id="a2" source="T3474170e.715a1" target="PTc17173a1.3d1d7"/>
+      <arc id="b2" source="PTc17173a1.3d1d7" target="Tc17173a1.3d1d7"/>
+      <place id="PT8d0a8ad6.a2d2"/>
+      <arc id="a3" source="Tc17173a1.3d1d7" target="PT8d0a8ad6.a2d2"/>
+      <arc id="b3" source="PT8d0a8ad6.a2d2" target="T8d0a8ad6.a2d2"/>
+    </page>
+  </net>
+</pnml>
+

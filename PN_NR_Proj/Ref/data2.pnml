@@ -1,0 +1,12 @@
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+<net id="net0" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+  <page id="toppage">
+    <name>
+      <text>myname</text>
+    </name>
+    <place id="Pccd0ae63.5d947"/>    <place id="P3605506d.13ea28"/>    <place id="Pe48ad5.ea968528"/>    <place id="Paf9048e5.01c33"/>    <place id="P6e4d9d36.e0a3fc"/>    <place id="Pf21d5751.1ca54"/>    <transition id="TR-Pe48ad5.ea968528_Pf21d5751.1ca54"/>    <arc id="a0" source="Pe48ad5.ea968528" target="TR-Pe48ad5.ea968528_Pf21d5751.1ca54"/>    <arc id="b0" source="TR-Pe48ad5.ea968528_Pf21d5751.1ca54" target="Pf21d5751.1ca54"/>    <transition id="TR-Pccd0ae63.5d947_Pf21d5751.1ca54"/>    <arc id="a1" source="Pccd0ae63.5d947" target="TR-Pccd0ae63.5d947_Pf21d5751.1ca54"/>    <arc id="b1" source="TR-Pccd0ae63.5d947_Pf21d5751.1ca54" target="Pf21d5751.1ca54"/>    <transition id="TR-Pf21d5751.1ca54_Paf9048e5.01c33"/>    <arc id="a2" source="Pf21d5751.1ca54" target="TR-Pf21d5751.1ca54_Paf9048e5.01c33"/>    <arc id="b2" source="TR-Pf21d5751.1ca54_Paf9048e5.01c33" target="Paf9048e5.01c33"/>    <transition id="TR-P3605506d.13ea28_Pf21d5751.1ca54"/>    <arc id="a3" source="P3605506d.13ea28" target="TR-P3605506d.13ea28_Pf21d5751.1ca54"/>    <arc id="b3" source="TR-P3605506d.13ea28_Pf21d5751.1ca54" target="Pf21d5751.1ca54"/>  </page>
+  <name>
+    <text>hello</text>
+  </name>
+</net>
+</pnml>

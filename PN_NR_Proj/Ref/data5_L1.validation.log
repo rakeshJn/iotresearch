@@ -1,0 +1,17 @@
+Java HotSpot(TM) 64-Bit Server VM warning: MaxNewSize (2097152k) is equal to or greater than the entire heap (2097152k).  A new max generation size of 2097088k will be used.
+09:10:37.361 [main] WARN  f.l.m.pnml.validation.ValidationMain - Debug mode not set. If you want to activate the debug mode (print stacktraces in case of errors), then set the PNMLVAL_DEBUG environment variable like so: export PNMLVAL_DEBUG=true.
+09:10:37.364 [main] INFO  f.l.m.pnml.validation.ValidationMain - invoked standalone execution mode
+09:10:37.374 [main] INFO  f.l.m.pnml.validation.ValidationMain - importing file /Users/rakesh/eclipse-workspace2/PN_NR_Proj/Ref//data5_L1.pnml
+HTTP/1.1 200 OK
+Message: Your PNML document conforms to the standard specifications.
+Model name: net.L6e4d9d36.e0a3fc
+Model type: PNML Core Model
+Number of nets: 1
+Number of places: 3
+Number of transitions: 5
+Number of arcs: 7
+Number of reference places: 0
+Number of reference transitions: 0
+
+09:10:38.382 [main] INFO  f.l.m.pnml.validation.ValidationMain - Checked by PNML DoC 1.2.4
+09:10:38.382 [main] INFO  f.l.m.pnml.validation.ValidationMain - The PNML checking took 1.042715761 seconds.

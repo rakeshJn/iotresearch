@@ -1,0 +1,6 @@
+<pnmlcustomtypes >
+
+<pnmlcustomtype namespace="http://www.lpn.com/tt" typename="labeled_petrinets">
+<rootclass>com.ibm.petrinets.labeledpn.hlapi.PetriNetDocHLAPI</rootclass>
+</pnmlcustomtype>
+</pnmlcustomtypes >

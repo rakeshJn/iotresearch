@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse_Oxygen.app/Contents/Eclipse/plugins/fr.lip6.pnml.framework.symmetricnet_2.2.12.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse_Oxygen.app/Contents/Eclipse/plugins/fr.lip6.pnml.framework.3rdpartimports_2.2.12.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse_Oxygen.app/Contents/Eclipse/plugins/fr.lip6.pnml.framework.utils_2.2.12.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse_Oxygen.app/Contents/Eclipse/plugins/fr.lip6.pnml.framework.ptnet_2.2.12.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse_Oxygen.app/Contents/Eclipse/plugins/fr.lip6.pnml.framework.hlpn_2.2.12.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse_Oxygen.app/Contents/Eclipse/plugins/fr.lip6.pnml.framework.coremodel_2.2.12.jar"/>
+	<classpathentry kind="lib" path="/Users/rakesh/eclipse-workspace2/org.json-20161124.jar"/>
+	<classpathentry kind="var" path="ECLIPSE_HOME"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse_Oxygen.app/Contents/Eclipse/plugins/org.eclipse.emf.ecore_2.13.0.v20170609-0707.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse_Oxygen.app/Contents/Eclipse/plugins/org.eclipse.emf.common_2.13.0.v20170609-0707.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse_Oxygen.app/Contents/Eclipse/plugins/org.eclipse.emf.common.ui_2.12.0.v20170609-0928.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
