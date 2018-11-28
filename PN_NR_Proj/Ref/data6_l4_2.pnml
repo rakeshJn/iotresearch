@@ -1,0 +1,49 @@
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="net.L7c63fb4a.8d87b4" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <page id="toppage.L7c63fb4a.8d87b4">
+      <name>
+        <text>myname</text>
+      </name>
+      <place id="P94a77544.1f4678_L7c63fb4a.8d87b4"/>      
+      	<arc id="a3.L7c63fb4a.8d87b4_L6e4d9d36.e0a3fc0" source="Tmqtt.inT2f9561de.333fee_L7c63fb4a.8d87b4_L6e4d9d36.e0a3fc_0" target="P94a77544.1f4678_L7c63fb4a.8d87b4"/>      
+      <transition id="Tmqtt.inT2f9561de.333fee_L7c63fb4a.8d87b4_L6e4d9d36.e0a3fc_0">
+        <name>
+          <text>L7c63fb4a.8d87b4</text>
+        </name>
+      </transition>
+      	<arc id="a3.L7c63fb4a.8d87b4_Lc0b529c8.67f2f80" source="Tmqtt.inTb2114c1a.76cdc_L7c63fb4a.8d87b4_Lc0b529c8.67f2f8_0" target="P94a77544.1f4678_L7c63fb4a.8d87b4"/>      
+      <transition id="Tmqtt.inTb2114c1a.76cdc_L7c63fb4a.8d87b4_Lc0b529c8.67f2f8_0">
+        <name>
+          <text>L7c63fb4a.8d87b4</text>
+        </name>
+      </transition>
+      	<arc id="a3.L7c63fb4a.8d87b4_Lbe1b3196.4984980" source="Tmqtt.inTb4c06481.8440b8_L7c63fb4a.8d87b4_Lbe1b3196.498498_0" target="P94a77544.1f4678_L7c63fb4a.8d87b4"/>      
+      <transition id="Tmqtt.inTb4c06481.8440b8_L7c63fb4a.8d87b4_Lbe1b3196.498498_0">
+        <name>
+          <text>L7c63fb4a.8d87b4</text>
+        </name>
+      </transition>
+      	<arc id="b0L7c63fb4a.8d87b4" source="P94a77544.1f4678_L7c63fb4a.8d87b4" target="T94a77544.1f4678"/>      
+      <transition id="T94a77544.1f4678">
+        <name>
+          <text>L7c63fb4a.8d87b4</text>
+        </name>
+      </transition>
+      <place id="P_L7c63fb4a.8d87b4_L6e4d9d36.e0a3fc_0"/> <arc id="a2.L7c63fb4a.8d87b4_L6e4d9d36.e0a3fc0" source="P_L7c63fb4a.8d87b4_L6e4d9d36.e0a3fc_0" target="Tmqtt.inT2f9561de.333fee_L7c63fb4a.8d87b4_L6e4d9d36.e0a3fc_0"/>     
+      <place id="P_L7c63fb4a.8d87b4_Lc0b529c8.67f2f8_0"/> <arc id="a2.L7c63fb4a.8d87b4_Lc0b529c8.67f2f80" source="P_L7c63fb4a.8d87b4_Lc0b529c8.67f2f8_0" target="Tmqtt.inTb2114c1a.76cdc_L7c63fb4a.8d87b4_Lc0b529c8.67f2f8_0"/>      
+      <place id="P_L7c63fb4a.8d87b4_Lbe1b3196.498498_0"/> <arc id="a2.L7c63fb4a.8d87b4_Lbe1b3196.4984980" source="P_L7c63fb4a.8d87b4_Lbe1b3196.498498_0" target="Tmqtt.inTb4c06481.8440b8_L7c63fb4a.8d87b4_Lbe1b3196.498498_0"/>      
+      <place id="P7835fa48.257004_L7c63fb4a.8d87b4"/>    <arc id="a2L7c63fb4a.8d87b4" source="T94a77544.1f4678" target="P7835fa48.257004_L7c63fb4a.8d87b4"/>      
+      													<arc id="a1_L7c63fb4a.8d87b40" source="P7835fa48.257004_L7c63fb4a.8d87b4" target="Tmqtt.outT7835fa48.257004_L7c63fb4a.8d87b4"/>      
+      <transition id="Tmqtt.outT7835fa48.257004_L7c63fb4a.8d87b4">
+        <name>
+          <text>L7c63fb4a.8d87b4</text>
+        </name>
+      </transition>
+     <place id="PL7c63fb4a.8d87b40"/>      
+      <arc id="a2_L7c63fb4a.8d87b40" source="Tmqtt.outT7835fa48.257004_L7c63fb4a.8d87b4" target="PL7c63fb4a.8d87b40"/>    
+    </page>
+    <name>
+      <text>net.L7c63fb4a.8d87b4</text>
+    </name>
+  </net>
+</pnml>

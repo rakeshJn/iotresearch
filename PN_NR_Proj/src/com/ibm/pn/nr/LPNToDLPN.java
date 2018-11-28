@@ -24,10 +24,10 @@ import fr.lip6.move.pnml.pnmlcoremodel.hlapi.PetriNetHLAPI;
 import fr.lip6.move.pnml.pnmlcoremodel.hlapi.PlaceHLAPI;
 import fr.lip6.move.pnml.pnmlcoremodel.hlapi.TransitionHLAPI;
 
-public class PNToDPN {
+public class LPNToDLPN {
 
 	public static void main(String[] args) {
-		String path = "/Users/rakesh/git/iot-research/pn/PN_NR_Proj/Ref/data6.pnml";
+		String path = "/Users/rakesh/git/iot-research/pn/PN_NR_Proj/Ref/data7.pnml";
 		
 		 // We assume the path to the PNML file is provided as argument to this program.
        File f = new File(path);
@@ -164,14 +164,14 @@ public class PNToDPN {
 	                						//generate arcs to connect these all
 	                						ArcHLAPI a1 = new ArcHLAPI("a1_"+loc+i, newpl, tgn);
 	                						ArcHLAPI a2 = new ArcHLAPI("a2_"+loc+i, tgn, pgn);
-	                						//ArcHLAPI a3 = new ArcHLAPI("a3_"+loc+i, pgn, tr);
+	                						ArcHLAPI a3 = new ArcHLAPI("a3_"+loc+i, pgn, tr);  //this is arc to remote tr 
 	                						
 	                						newpl.getOutArcsHLAPI().add(a1);
 	                						tgn.getInArcsHLAPI().add(a1);
 	                						tgn.getOutArcsHLAPI().add(a2);
 	                						pgn.getInArcsHLAPI().add(a2);
-	                						//pgn.getOutArcsHLAPI().add(a3);
-	                						//tr.getInArcsHLAPI().add(a3);
+	                						pgn.getOutArcsHLAPI().add(a3);			//arc to remote
+	                						tr.getInArcsHLAPI().add(a3);				//arc in remote
 	                						i++;
 	                					}
 	                				}
@@ -212,12 +212,12 @@ public class PNToDPN {
 	                						//populateMap(loc_new_trans, loc, tcn);
 	                						
 	                						//generate arcs to connect these all
-	                						//ArcHLAPI a1 = new ArcHLAPI("a1."+loc+i, tr, pcn);
+	                						ArcHLAPI a1 = new ArcHLAPI("a1."+loc+"_"+inLoc+i, tr, pcn);				//this is arc from remote
 	                						ArcHLAPI a2 = new ArcHLAPI("a2."+loc+"_"+inLoc+i, pcn, tcn);
 	                						ArcHLAPI a3 = new ArcHLAPI("a3."+loc+"_"+inLoc+i, tcn, newpl);
 	                						
-	                						//tr.getOutArcsHLAPI().add(a1);
-	                						//pcn.getInArcsHLAPI().add(a1);
+	                						tr.getOutArcsHLAPI().add(a1);					//arc from remote
+	                						pcn.getInArcsHLAPI().add(a1);					//arc from remote to our new place
 	                						pcn.getOutArcsHLAPI().add(a2);	                						
 	                						tcn.getInArcsHLAPI().add(a2);
 	                						tcn.getOutArcsHLAPI().add(a3);
@@ -230,7 +230,8 @@ public class PNToDPN {
 	                		
 	                }
 	                
-	                generatePNMLs(loc_places, loc_new_trans);    
+	                //generatePNMLs(loc_places, loc_new_trans);
+	                generateDLPNML(loc_places);
                 
 	        } 
 	                
@@ -366,6 +367,36 @@ public class PNToDPN {
 			pl.setContainerPageHLAPI(page);
 			setPageForArcs(pl.getInArcsHLAPI(), page);			
 			setPageForArcs(pl.getOutArcsHLAPI(), page);			
+		}		
+		System.out.println(doc.toPNML());
+		return ret;
+	}
+	
+	private static String generateDLPNML(Map<String, List<PlaceHLAPI>> plMap) throws Exception
+	{
+		String ret = "";		
+		Set<String> locations = plMap.keySet();
+		System.out.println("generateDLPNML "+locations.size());
+		ModelRepository.getInstance().createDocumentWorkspace("void");
+		ModelRepository.getInstance().setPrettyPrintStatus(true);
+		PetriNetDocHLAPI doc = new PetriNetDocHLAPI();
+		PetriNetHLAPI net = new PetriNetHLAPI("net"+".DLPN", PNTypeHLAPI.COREMODEL,new NameHLAPI("net"), doc);
+		PageHLAPI page = new PageHLAPI("toppage", new NameHLAPI("myname"),null, net);
+		
+		Iterator<String> iter = locations.iterator();
+		
+		while(iter.hasNext())
+		{
+			String loc = iter.next();
+			List<PlaceHLAPI> places = plMap.get(loc);
+			
+			for(PlaceHLAPI pl: places)
+			{
+				pl.setContainerPageHLAPI(page);
+				pl.setNameHLAPI(new NameHLAPI(loc));
+				setPageForArcs(pl.getInArcsHLAPI(), page);			
+				setPageForArcs(pl.getOutArcsHLAPI(), page);			
+			}				
 		}		
 		System.out.println(doc.toPNML());
 		return ret;

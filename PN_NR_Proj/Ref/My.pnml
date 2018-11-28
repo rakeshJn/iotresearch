@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/highlevelnet">
+    <toolspecific tool="org.pnml.tools.epnk.diagraminfo" version="0.9.2"/>
+  </net>
+</pnml>

@@ -1,0 +1,22 @@
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="net.L6e4d9d36.e0a3fc" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <page id="toppage.L6e4d9d36.e0a3fc">
+      <name>
+        <text>myname</text>
+      </name>
+      <place id="P94a77544.1f4678_L6e4d9d36.e0a3fc"/>      <arc id="a1L6e4d9d36.e0a3fc" source="T2f9561de.333fee" target="P94a77544.1f4678_L6e4d9d36.e0a3fc"/>      <transition id="T2f9561de.333fee">
+        <name>
+          <text>L6e4d9d36.e0a3fc</text>
+        </name>
+      </transition>
+      <arc id="a1_L6e4d9d36.e0a3fc0" source="P94a77544.1f4678_L6e4d9d36.e0a3fc" target="Tmqtt.outT94a77544.1f4678_L6e4d9d36.e0a3fc"/>      <transition id="Tmqtt.outT94a77544.1f4678_L6e4d9d36.e0a3fc">
+        <name>
+          <text>L6e4d9d36.e0a3fc</text>
+        </name>
+      </transition>
+      <place id="PL6e4d9d36.e0a3fc0"/>      <arc id="a2_L6e4d9d36.e0a3fc0" source="Tmqtt.outT94a77544.1f4678_L6e4d9d36.e0a3fc" target="PL6e4d9d36.e0a3fc0"/>    </page>
+    <name>
+      <text>net.L6e4d9d36.e0a3fc</text>
+    </name>
+  </net>
+</pnml>

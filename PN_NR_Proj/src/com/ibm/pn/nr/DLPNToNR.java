@@ -2,9 +2,11 @@ package com.ibm.pn.nr;
 
 import java.io.File;
 import java.io.FileReader;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.json.JSONArray;
@@ -19,19 +21,19 @@ import fr.lip6.move.pnml.pnmlcoremodel.hlapi.PageHLAPI;
 import fr.lip6.move.pnml.pnmlcoremodel.hlapi.PetriNetHLAPI;
 import fr.lip6.move.pnml.pnmlcoremodel.hlapi.TransitionHLAPI;
 
-public class PNToNR3 {
+public class DLPNToNR {
 
 	
 	public static void main(String[] args) 
 	{
-		String path = "/Users/rakesh/eclipse-workspace2/PN_NR_Proj/Ref/data5_L2.pnml";
+		String path = "/Users/rakesh/git/iot-research/pn/PN_NR_Proj/Ref/data7_dlpn.pnml";
 		
-		String json = "/Users/rakesh/eclipse-workspace2/PN_NR_Proj/Ref/data5.json";
+		String json = "/Users/rakesh/git/iot-research/pn/PN_NR_Proj/Ref/data6.json";
 		
 		 
         File f = new File(path);
+        Map<String, JSONArray> allLocNR = new HashMap<>();
         
-        JSONArray ret = new JSONArray();
         try {
         			FileReader fr = new FileReader(json);
         			JSONTokener tokener = new JSONTokener(fr);
@@ -57,44 +59,58 @@ public class PNToNR3 {
 	                	
 	                	PageHLAPI page = net.getPagesHLAPI().get(0);
 	                System.out.println("isCoreModelDocument");
-	                    
+	                
+	                Set<String> locations = new HashSet<>();
+	                List<TransitionHLAPI> trs = page.getObjects_TransitionHLAPI();
+	                for(TransitionHLAPI t: trs)
+	                {
+	                		String loc = t.getNameHLAPI().getText();
+	                		if(loc!=null) locations.add(loc);
+	                }
+	                System.out.println("Total locations are "+locations.size());
+	                
 	                List<ArcHLAPI> 			arcs 		= page.getObjects_ArcHLAPI();
 	                System.out.println("Total arcs "+arcs.size());
 	                Set<String> processed = new HashSet<>();
-	                
-	                for(ArcHLAPI arc: arcs)
+	                for(String location: locations)
 	                {
-	                		NodeHLAPI src = arc.getSourceHLAPI();
-	                		NodeHLAPI tgt = arc.getTargetHLAPI();
-	                		TransitionHLAPI tr = null;
-	                		Set<TransitionHLAPI> wires = new HashSet<>();	                		
-	                		boolean trIsSrc = false;
-	                		
-	                		if(src instanceof TransitionHLAPI)
-	                		{
-	                			tr = (TransitionHLAPI)src;
-	                			trIsSrc = true;
-	                		}
-	                		else if(tgt instanceof TransitionHLAPI)
-	                			tr = (TransitionHLAPI)tgt;
-	                		
-	                		if(processed.contains(tr.getId()))
-	                			continue;
-	                		processed.add(tr.getId());
-	                		
-	                		wires = getTargetTransitions(arc, arcs);   //this looks up for wires even if the transition is in target place for this arc	                			               			
-	                		
-	                		System.out.println("Transition "+tr.getId());
-	                		JSONObject node = getNRNode(tr, wires, ja);
-	                		if(node != null)
-	                			ret.put(node);
+	                		JSONArray ret = new JSONArray();
+		                for(ArcHLAPI arc: arcs)
+		                {
+		                		NodeHLAPI src = arc.getSourceHLAPI();
+		                		NodeHLAPI tgt = arc.getTargetHLAPI();
+		                		TransitionHLAPI tr = null;
+		                		Set<TransitionHLAPI> wires = new HashSet<>();	                		
+		                		boolean trIsSrc = false;
+		                		
+		                		if(src instanceof TransitionHLAPI)
+		                		{
+		                			tr = (TransitionHLAPI)src;
+		                			trIsSrc = true;
+		                		}
+		                		else if(tgt instanceof TransitionHLAPI)
+		                			tr = (TransitionHLAPI)tgt;
+		                		if(! tr.getNameHLAPI().getText().contentEquals(location))
+		                			continue;
+		                		if(processed.contains(tr.getId()))
+		                			continue;
+		                		processed.add(tr.getId());
+		                		
+		                		wires = getTargetTransitions(arc, arcs, location);   //this looks up for wires even if the transition is in target place for this arc	                			               			
+		                		
+		                		//System.out.println("Transition "+tr.getId());
+		                		JSONObject node = getNRNode(tr, wires, ja);
+		                		if(node != null)
+		                			ret.put(node);
+		                }
+		                System.out.println("NR Json for location "+location);
+		                System.out.println(ret.toString(4));
+		                allLocNR.put(location, ret);
 	                }
 	                
-	            }
-                System.out.println("NR Json ");
-                System.out.println(ret.toString(4));
-                
+	            }                 
                 fr.close();
+                System.out.println("All location NR JSON = "+allLocNR.toString());
         } catch (Exception e) {
                 e.printStackTrace();
         }
@@ -112,12 +128,12 @@ public class PNToNR3 {
 		while(iter.hasNext())
 		{
 			JSONObject jo = (JSONObject)iter.next();
-			System.out.println(jo.getString("id")+"====="+trid);
+			//System.out.println(jo.getString("id")+"====="+trid);
 			if(jo.getString("id").contentEquals(trid))
 			{
 				//ret.put("id", trnm);
 				//ret.put("type", jo.get("type"));
-				System.out.println(jo);
+				//System.out.println(jo);
 				ret = jo;
 				if(ret.has("location"))
 					ret.remove("location");
@@ -178,7 +194,7 @@ public class PNToNR3 {
 	
 	//[{"id":"fde024d2.22ad8","type":"mqtt in","z":"21362410.4291cc","name":"","topic":"","qos":"2","x":457.5,"y":419.25,"wires":[[]]}]
 	
-	private static Set<TransitionHLAPI> getTargetTransitions(ArcHLAPI srcArc, List<ArcHLAPI> allArcs)
+	private static Set<TransitionHLAPI> getTargetTransitions(ArcHLAPI srcArc, List<ArcHLAPI> allArcs, String location)
 	{
 		Set<TransitionHLAPI> ret = new HashSet<>();
 		if(!(srcArc.getSourceHLAPI() instanceof TransitionHLAPI))
@@ -187,9 +203,10 @@ public class PNToNR3 {
 			TransitionHLAPI t = (TransitionHLAPI)srcArc.getTargetHLAPI();
 			for(ArcHLAPI a: allArcs)
 			{
-				if(a.getSource().getId().contentEquals(t.getId())) //found an arc where this tr is a source
+				if(a.getSource().getId().contentEquals(t.getId())) //found an arc where this tr is a source, and is in the same location
 				{
-					return getTargetTransitions(a, allArcs);
+					if(a.getSourceHLAPI().getNameHLAPI().getText().contentEquals(location))
+						return getTargetTransitions(a, allArcs, location);
 				}
 			}
 			//return ret;
@@ -200,9 +217,12 @@ public class PNToNR3 {
 		{
 			if(a.getSourceHLAPI().getId().contentEquals(tgtplid))
 			{
-				System.out.println("%%%%%% "+a.getSourceHLAPI().getId());
-				ret.add((TransitionHLAPI)a.getTargetHLAPI());  //there is an arc where given place is a source, the target of that arc is connected transition
-				break;
+				if(a.getSourceHLAPI().getNameHLAPI().getText().contentEquals(location))
+				{
+					//System.out.println("%%%%%% "+a.getSourceHLAPI().getId());
+					ret.add((TransitionHLAPI)a.getTargetHLAPI());  //there is an arc where given place is a source, the target of that arc is connected transition
+					break;
+				}
 			}
 		}
 		return ret;

@@ -1,0 +1,37 @@
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="net0" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <page id="toppage">
+      <name>
+        <text>myname</text>
+      </name>
+      <transition id="T94a77544.1f4678">
+        <name>
+          <text>L7c63fb4a.8d87b4</text>
+        </name>
+      </transition>
+      <transition id="Tb4c06481.8440b8">
+        <name>
+          <text>Lbe1b3196.498498</text>
+        </name>
+      </transition>
+      <transition id="T7835fa48.257004">
+        <name>
+          <text>L30d98a41.91ebc6</text>
+        </name>
+      </transition>
+      <transition id="Tb2114c1a.76cdc">
+        <name>
+          <text>Lc0b529c8.67f2f8</text>
+        </name>
+      </transition>
+      <transition id="T2f9561de.333fee">
+        <name>
+          <text>L6e4d9d36.e0a3fc</text>
+        </name>
+      </transition>
+      <place id="P94a77544.1f4678"/>      <arc id="a0" source="Tb4c06481.8440b8" target="P94a77544.1f4678"/>      <arc id="b0" source="P94a77544.1f4678" target="T94a77544.1f4678"/>      <arc id="a1" source="T2f9561de.333fee" target="P94a77544.1f4678"/>      <place id="P7835fa48.257004"/>      <arc id="a2" source="T94a77544.1f4678" target="P7835fa48.257004"/>      <arc id="b2" source="P7835fa48.257004" target="T7835fa48.257004"/>      <arc id="a3" source="Tb2114c1a.76cdc" target="P94a77544.1f4678"/>    </page>
+    <name>
+      <text>hello</text>
+    </name>
+  </net>
+</pnml>
